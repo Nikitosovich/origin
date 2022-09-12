@@ -31,8 +31,12 @@ public:
 		this->name = name;
 	}
 
-	uint32 get_sides_count()const;
-	std::string get_name()const;
+	uint32 get_sides_count()const {
+		return this->sides_count;
+	}
+	std::string get_name()const {
+		return this->name;
+	}
 
 	virtual void print_info()const
 	{
@@ -66,9 +70,7 @@ public:
 		this->B = B;
 		this->C = C;
 	}
-	uint32* get_sides();
-	uint32* get_angles();
-
+	
 	virtual void print_info()const
 	{
 		std::cout << get_name() << ":\n";
@@ -108,9 +110,7 @@ public:
 		this->C = C;
 		this->D = D;
 	}
-	uint32* get_sides();
-	uint32* get_angles();
-
+	
 	virtual void print_info()const
 	{
 		std::cout << get_name() << ":\n";

@@ -140,7 +140,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="basecpp_5_3.cpp" />
-    <ClCompile Include="base_class.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base_class.h" />

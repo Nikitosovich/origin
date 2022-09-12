@@ -1,5 +1,6 @@
 #pragma once
 #include<string>
+#include <format>
 typedef unsigned int uint32;
 
 class Figure {
@@ -10,20 +11,16 @@ public:
 	Figure(std::string name) {
 		this->name = name;
 	}
-	Figure(unsigned int count) {
-		this->sides_count = count;
-		if (count <= 2)
-		{
-			this->name = "Фигура";
-		}
-	}
-	Figure(unsigned int count, std::string name) {
-		this->sides_count = count;
-		this->name = name;
-	}
 
-	std::string get_name();
-	uint32 get_sides_count();
+	std::string get_name() {
+		return this->name;
+	}
+	uint32 get_sides_count() {
+		return this->sides_count;
+	}
+	virtual std::string print_string() {
+		return "";
+	}
 };
 
 class Triangle :public Figure {
@@ -41,8 +38,12 @@ public:
 		this->B = B;
 		this->C = C;
 	}
-	uint32* get_sides();
-	uint32* get_angles();
+
+	virtual std::string print_string() {
+		std::string str = format("{}:\nСтороны: a = {} b = {} c = {}\n", get_name(), std::to_string(a), std::to_string(b), std::to_string(c));
+		str += format("Углы: A = {} B = {} C = {}\n", std::to_string(A), std::to_string(B), std::to_string(C));
+		return str;
+	}
 };
 
 class Quadrangle :public Figure {
@@ -62,7 +63,13 @@ public:
 		this->C = C;
 		this->D = D;
 	}
-	uint32* get_sides();
-	uint32* get_angles();
+
+	virtual std::string print_string() {
+		std::string str = format("{}:\nСтороны: a = {} b = {} c = {} d = {}\n", get_name(), std::to_string(a),
+			std::to_string(b), std::to_string(c), std::to_string(d));
+		str += format("Углы: A = {} B = {} C = {} D = {}\n", std::to_string(A), std::to_string(B),
+			std::to_string(C), std::to_string(D));
+		return str;
+	}
 };
 
