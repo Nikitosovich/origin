@@ -13,7 +13,7 @@ protected:
 		else {
 			std::cout << "Правильная\n";
 		}
-		std::cout << "Количество сторон: " << get_sides_count() << "\n";\
+		std::cout << "Количество сторон: " << get_sides_count() << "\n"; \
 	}
 
 public:
@@ -70,7 +70,7 @@ public:
 		this->B = B;
 		this->C = C;
 	}
-	
+
 	virtual void print_info()const
 	{
 		std::cout << get_name() << ":\n";
@@ -110,7 +110,7 @@ public:
 		this->C = C;
 		this->D = D;
 	}
-	
+
 	virtual void print_info()const
 	{
 		std::cout << get_name() << ":\n";

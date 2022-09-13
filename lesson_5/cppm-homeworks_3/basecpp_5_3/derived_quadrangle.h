@@ -30,7 +30,14 @@ public:
 		if (!check_base_quad())
 			return false;
 
-		if (this->A == 90 && this->C == 90 && this->B == 90 && this->D == 90) {
+		if ((this->A == 90) &&
+			(this->C == 90) &&
+			(this->B == 90) &&
+			(this->D == 90) &&
+			(this->a == this->b) &&
+			(this->b == this->c) &&
+			(this->c == this->d) &&
+			(this->d == this->a)) {
 			return true;
 		}
 		return false;
@@ -49,7 +56,7 @@ public:
 		if (!check_base_quad())
 			return false;
 
-		if (this->A == this->C && this->B && this->D && this->a == this->c && this->b == this->d) {
+		if (this->A == this->C && this->B == this->D && this->a == this->c && this->b == this->d) {
 			return true;
 		}
 		return false;

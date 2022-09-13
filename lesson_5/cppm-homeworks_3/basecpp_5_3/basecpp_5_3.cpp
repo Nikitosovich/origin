@@ -13,7 +13,7 @@ int main()
 {
 	setlocale(LC_ALL, "ru");
 
-	Figure figure(0);
+	Figure figure(1);
 	print(figure);
 
 	Triangle triangle(10, 20, 30, 50, 60, 60);
@@ -29,7 +29,7 @@ int main()
 	Quadrangle quadrangle(10, 20, 30, 40, 90, 90, 90, 80);
 	Rectangle rectangle(10, 20, 10, 20, 90, 90, 90, 90);
 	Square square(20, 20, 20, 20, 90, 90, 90, 90);
-	Parallelogram parallelogram(20, 30, 20, 30, 30, 40, 30, 40);
+	Parallelogram parallelogram(20, 30, 20, 30, 80, 100, 80, 100);
 	Rhomb rhomb(30, 30, 30, 30, 30, 40, 30, 40);
 
 	print(quadrangle);
