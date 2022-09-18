@@ -54,11 +54,15 @@ int main()
 
 	ofstream outfile("out.txt");
 	outfile << N << endl;
-	for (int i = 2; i >= 0; --i) {
+	for (int i = N-1; i >= 0; --i) {
 		auto address_t = adr[i];
 		string str = address_t->get_output_address();
 		outfile << str << endl;
 	}
+
+	for (size_t i = 0; i < N; i++)
+		delete adr[i];
+	delete[] adr;
 
 	system("pause");
 	return 0;
