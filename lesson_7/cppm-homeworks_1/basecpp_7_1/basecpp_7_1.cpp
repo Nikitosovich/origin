@@ -8,9 +8,11 @@
 #error Important macro required
 #endif 
 
+#if MODE == 1
 int add(int x, int y) {
 	return x + y;
 }
+#endif
 
 int main()
 {
