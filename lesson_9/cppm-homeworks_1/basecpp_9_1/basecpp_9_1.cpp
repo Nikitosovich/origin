@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <limits.h>
 
 class Fraction
 {
@@ -12,11 +13,8 @@ public:
 		numerator_ = numerator;
 		denominator_ = denominator;
 	}
-	double ff() {
-		return numerator_ / denominator_;
-	}
 	bool operator==(Fraction other) {
-		if (ff() == other.ff())
+		if ((this->numerator_ == other.numerator_) && (this->denominator_ == other.denominator_))
 			return true;
 		else
 			return false;
@@ -25,7 +23,8 @@ public:
 		return !(*this == other);
 	}
 	bool operator<(Fraction other) {
-		if (ff()<other.ff())
+		if (((this->numerator_ < other.numerator_) && (this->denominator_ >= other.denominator_))||
+			((this->numerator_ == other.numerator_) && (this->denominator_ > other.denominator_)))
 			return true;
 		else
 			return false;
@@ -43,8 +42,11 @@ public:
 
 int main()
 {
-	Fraction f1(4, 3);
-	Fraction f2(6, 11);
+	/*Fraction f1(4, 3);
+	Fraction f2(6, 11);*/
+
+	Fraction f1(1, INT_MAX );
+	Fraction f2(1, INT_MAX - 1);
 
 	std::cout << "f1" << ((f1 == f2) ? " == " : " not == ") << "f2" << '\n';
 	std::cout << "f1" << ((f1 != f2) ? " != " : " not != ") << "f2" << '\n';
