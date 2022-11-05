@@ -9,7 +9,7 @@ public:
 	Matrix(int rows, int columns) {
 		this->rows = rows;
 		this->columns = columns;
-		m_data = new T* [rows];
+		m_data = new T * [rows];
 		for (int i = 0; i < rows; ++i) {
 			m_data[i] = new T[columns];
 		}
@@ -32,6 +32,9 @@ public:
 		return m_data[index_row];
 	}
 
+	Matrix(const Matrix&) = delete;
+	Matrix& opertor = (const Matrix&) = delete;
+
 
 private:
 	int rows{};
@@ -47,8 +50,8 @@ int main()
 	arr2[0][1] = 8;
 	test[0][0] = 4;
 	std::cout << "test[0][0] = " << test[0][0] << std::endl;
-	std::cout <<"arr2[1][0] = " << arr2[1][0] << std::endl;
-	std::cout <<"arr2[0][1] = " << arr2[0][1];
+	std::cout << "arr2[1][0] = " << arr2[1][0] << std::endl;
+	std::cout << "arr2[0][1] = " << arr2[0][1];
 
 	return 0;
 }
