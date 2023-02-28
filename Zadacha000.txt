@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+#include <stdlib.h>
+
+//вывод на экран битового представление числа
+void print_bit(int* num) {
+	for (int i = 31; i >= 0; --i) {
+		int res = (*num >> i) & 1;
+		printf("%d ", res);
+	}
+}
+
+int main() {
+
+	char sen[11];
+	int flag1 = 0;
+
+	do {
+		printf("Enter the number: ");
+		fgets(sen, 11, stdin);
+		int len = strlen(sen);
+		flag1 = 0;
+		for (int i = 0; i < len - 1; ++i) {
+			if (!isdigit(sen[i])) {
+				printf_s("Input error\n");
+				fflush(stdin);
+				flag1 = 1;
+				break;
+			}
+		}
+	} while (flag1);
+
+	int num = atoi(sen);
+	int flag = 0;
+
+	while (1)
+	{
+		print_bit(&num);
+
+		if (num & 0x80000000) {
+			flag = 1;
+		}
+
+		num = num << 1;
+
+		if (flag) {
+			++num;
+			flag = 0;
+		}
+
+		Sleep(300);
+		system("cls");
+	}
+	return 0;
+}
